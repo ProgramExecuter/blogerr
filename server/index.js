@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 import postRoute from "./routes/post.js";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 dotenv.config();
 app.use("/post", postRoute);
 app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 
 // SERVER SETUP
 const port = process.env.PORT || 3000;
