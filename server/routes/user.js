@@ -8,6 +8,6 @@ const router = express.Router();
 router.patch("/:userId", editUser);
 
 // DELETE A USER
-router.patch("/:userId", deleteUser);
+router.delete("/:userId", deleteUser);
 
 export default router;
