@@ -9,6 +9,8 @@ const app = express();
 
 // .ENV SETUP
 dotenv.config();
+
+// Routes Addition
 app.use("/post", postRoute);
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);

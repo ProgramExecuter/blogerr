@@ -1,34 +1,28 @@
 import express from "express";
 
+import {
+  getAllPosts,
+  getParticularPost,
+  createPost,
+  editPost,
+  deletePost,
+} from "../controllers/post.js";
+
 const router = express.Router();
 
 // GET ALL POSTS
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "All Posts Fetched" });
-});
+router.get("/", getAllPosts);
 
 // GET A PARTICULAR POST
-router.get("/:postId", (req, res) => {
-  res.status(200).json({ message: `Got post with Id: ${req.params.postId}` });
-});
+router.get("/:postId", getParticularPost);
 
 // CREATE A POST
-router.post("/", (req, res) => {
-  res.status(200).json({ message: "Created New Post" });
-});
+router.post("/", createPost);
 
 // EDIT A PARTICULAR POST
-router.patch("/:postId", (req, res) => {
-  res
-    .status(200)
-    .json({ message: `Editing post with Id: ${req.params.postId}` });
-});
+router.patch("/:postId", editPost);
 
 // DELETE A PARTICULAR POST
-router.delete("/:postId", (req, res) => {
-  res
-    .status(200)
-    .json({ message: `Deleting post with Id: ${req.params.postId}` });
-});
+router.delete("/:postId", deletePost);
 
 export default router;
