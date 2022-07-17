@@ -1,0 +1,12 @@
+{
+  "name": "blogert-server",
+  "version": "1.0.0",
+  "description": "Blogert Server is the backend of the Blogert - A Blogging app for people",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["Blogert", "Blogging", "App", "Website", "MERN Stack"],
+  "author": "Amit Singh Rana",
+  "license": "ISC"
+}
