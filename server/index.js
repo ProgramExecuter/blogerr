@@ -2,12 +2,14 @@ import express from "express";
 import dotenv from "dotenv";
 
 import postRoute from "./routes/post.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 
 // .ENV SETUP
 dotenv.config();
 app.use("/post", postRoute);
+app.use("/auth", authRoutes);
 
 // SERVER SETUP
 const port = process.env.PORT || 3000;
