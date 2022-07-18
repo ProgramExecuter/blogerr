@@ -1,30 +1,40 @@
+import Post from "../models/post.js";
+
 // Getting all Posts
 const getAllPosts = async (req, res) => {
-  res.status(200).json({ message: "All Posts Fetched" });
+  const allPosts = await Post.find();
+
+  res.status(200).json(allPosts);
 };
 
 // Get a particulat Post
 const getParticularPost = async (req, res) => {
-  res.status(200).json({ message: `Got post with Id: ${req.params.postId}` });
+  const reqPost = await Post.findById(req.params.postId);
+
+  res.status(200).json(reqPost);
 };
 
 // Create a new Post
 const createPost = async (req, res) => {
-  res.status(200).json({ message: "Created New Post" });
+  const newPost = new Post(req.body);
+
+  await newPost.save();
+
+  res.status(200).json(newPost);
 };
 
 // Edit a Post
 const editPost = async (req, res) => {
-  res
-    .status(200)
-    .json({ message: `Editing post with Id: ${req.params.postId}` });
+  await Post.findByIdAndUpdate(req.params.postId, { $set: req.body });
+
+  res.status(200).json({ message: "Post Edited" });
 };
 
 // Delete a Post
 const deletePost = async (req, res) => {
-  res
-    .status(200)
-    .json({ message: `Deleting post with Id: ${req.params.postId}` });
+  await Post.findByIdAndDelete(req.params.postId);
+
+  res.status(200).json({ message: "Post Deleted" });
 };
 
 export { getAllPosts, getParticularPost, createPost, editPost, deletePost };
