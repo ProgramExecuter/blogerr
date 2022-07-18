@@ -11,6 +11,9 @@ const app = express();
 // .ENV SETUP
 dotenv.config();
 
+// JSON FORM SETUP
+app.use(express.json());
+
 // MONGODB SETUP
 mongoose
   .connect(process.env.MONGOURI)
