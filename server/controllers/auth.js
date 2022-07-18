@@ -1,6 +1,12 @@
+import User from "../models/user.js";
+
 // Signup a new User
 const signup = async (req, res) => {
-  res.status(200).json({ message: "Register a new user" });
+  const newUser = new User(req.body);
+
+  await newUser.save();
+
+  res.status(200).json(newUser);
 };
 
 // Login an existing User
