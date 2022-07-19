@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
   password: String,
   profilePic: String,
   status: String,
+  authToken: String,
 });
 
 export default mongoose.model("user", userSchema);
